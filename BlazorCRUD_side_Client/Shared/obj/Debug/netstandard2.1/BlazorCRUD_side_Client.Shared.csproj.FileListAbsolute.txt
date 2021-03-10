@@ -1,0 +1,9 @@
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\bin\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.deps.json
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\bin\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.dll
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\bin\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.pdb
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.csprojAssemblyReference.cache
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.AssemblyInfoInputs.cache
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.AssemblyInfo.cs
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.csproj.CoreCompileInputs.cache
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.dll
+C:\Users\edwin.diaz\source\repos\BlazorCRUD_side_Client\BlazorCRUD_side_Client\Shared\obj\Debug\netstandard2.1\BlazorCRUD_side_Client.Shared.pdb

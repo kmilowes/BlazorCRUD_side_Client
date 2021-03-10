@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7C45UWQ5TcgJpQB7l11XhQSvZP+l9JttnImMWmPratGfetblGDuZDX8N/ly8h60ny3IQd7EDOBv0TmPuX3fbqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\edwin.diaz\\source\\repos\\BlazorCRUD_side_Client\\BlazorCRUD_side_Client\\Shared\\BlazorCRUD_side_Client.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\edwin.diaz\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

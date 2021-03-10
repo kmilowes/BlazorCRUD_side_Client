@@ -1,0 +1,101 @@
+﻿@inject HttpClient Http
+<EditForm Model="@Person" OnValidSubmit="@OnValidSubmit">
+    <div class="form-group">
+        <label>Nombre</label>
+        <div>
+            <InputText @bind-Value="@Person.Name" />
+            <ValidationMessage For="@(() => Person.Name)" /><!---Mostrar un error de validación que le corresponda al campo Nombre-->
+        </div>
+    </div>
+    <div class="form-group">
+        <label>País</label>
+        <div>
+            <!---Cambiar dinámicamente los dropdownlist de estado-->
+            <InputSelectNumber class="form-control"
+                               ValueChanged="@((int value) => ValorPaisCambiado(value))"
+                               ValueExpression="@(() => PaisId)"
+                               Value="PaisId">
+                <option value="0">--Select a country</option>
+                @foreach (var item in Countries)
+                {
+                    @if (item.Id == PaisId)
+                    {
+                        <option selected value="@item.Id">@item.NameCountry</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Id">@item.NameCountry</option>
+                    }
+                }
+
+            </InputSelectNumber>
+        </div>
+    </div>
+    <!--Estados-->
+    <div class="form-group">
+        <label>Estado</label>
+        <div>
+            <!---Cambiar dinámicamente los dropdownlist de estado-->
+            <InputSelectNumber class="form-control"
+                               @bind-Value="Person.StateId">
+                <option value="0">--Select a State</option>
+                @foreach (var item in Estados)
+                {
+                    @if (item.Id == Person.StateId)
+                    {
+                        <option selected value="@item.Id">@item.NameState</option>
+                    }
+                    else
+                    {
+                        <option value="@item.Id">@item.NameState</option>
+                    }
+                }
+
+            </InputSelectNumber>
+            <ValidationMessage For="@(() =>  Person.StateId)" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">@TextoBoton</button>
+    <DataAnnotationsValidator />
+</EditForm>
+
+@code {
+    [Parameter] public Person Person { get; set; } = new Person();
+    [Parameter] public string TextoBoton{ get; set; } = "Salvar Cambios";
+    //Método que se va a ejecutar como respuesta a un evento
+    //Para recibir una función como parámetro
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    List<State> Estados = new List<State>();
+    List<Country> Countries = new List<Country>();
+
+    private int PaisId = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrEmpty(Person.Name))
+        {
+            PaisId = Person.State.IdCountry;
+            await CargarEstados(Person.State.IdCountry);
+        }
+        Countries = await Http.GetFromJsonAsync<List<Country>>("api/Countries");
+    }
+    //cambiar dinámicamente el valor de los estados
+    private async Task ValorPaisCambiado(int value)
+    {
+        Person.StateId = 0;
+        PaisId = value;
+        await InvokeAsync(StateHasChanged);
+        if (value == 0)
+        {
+            Estados.Clear();
+        }
+        else {
+            await CargarEstados(value);
+        }
+    }
+    private async Task CargarEstados(int PaisId)
+    {
+        Estados = await Http.GetFromJsonAsync<List<State>>($"api/Countries/{PaisId}/estados");
+    }
+
+}

@@ -1,0 +1,22 @@
+﻿@page "/EditPerson/{IdPerson:int}"
+@inject HttpClient Http
+@inject NavigationManager Navigationmanager
+<h3>EditPerson</h3>
+@if(person != null)
+{
+    <FormPerson TextoBoton="Editar Persona" OnValidSubmit="@EditarPersona" Person="@person" />
+}
+@code {
+    [Parameter]public  int IdPerson { get; set; }
+    Person person;
+    protected async override Task OnParametersSetAsync()
+    {
+        person = await Http.GetFromJsonAsync<Person>($"api/People/{IdPerson}");
+    }
+
+    async Task EditarPersona()
+    {
+        await Http.PutAsJsonAsync("api/People", person);
+        Navigationmanager.NavigateTo("/Indice-personas");
+    }
+}
